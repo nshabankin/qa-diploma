@@ -26,6 +26,7 @@ public class TourPageActions {
 
     /**
      * Ввод номера карты.
+     *
      * @param cardNumber Номер карты.
      */
     public void enterCardNumber(String cardNumber) {
@@ -34,6 +35,7 @@ public class TourPageActions {
 
     /**
      * Ввод месяца.
+     *
      * @param month Месяц.
      */
     public void enterCardMonth(String month) {
@@ -42,6 +44,7 @@ public class TourPageActions {
 
     /**
      * Ввод года.
+     *
      * @param year Год.
      */
     public void enterCardYear(String year) {
@@ -50,6 +53,7 @@ public class TourPageActions {
 
     /**
      * Ввод имени владельца карты.
+     *
      * @param cardHolderName Имя владельца карты.
      */
     public void enterCardHolderName(String cardHolderName) {
@@ -58,6 +62,7 @@ public class TourPageActions {
 
     /**
      * Ввод CVC/CVV кода.
+     *
      * @param cvv Код CVC/CVV.
      */
     public void enterCardCvv(String cvv) {
@@ -89,6 +94,41 @@ public class TourPageActions {
      * Открытие страницы.
      */
     public void openPage() {
-        Selenide.open("http://localhost:8080/");  // Открывает основную страницу
+        Selenide.open("http://localhost:8080/");
+    }
+
+    /**
+     * Проверка сообщения об ошибке ввода номера карты.
+     */
+    public void checkNumberInputErrorNotification() {
+        elements.getCardNumberInputError().shouldBe(Condition.visible);
+    }
+
+    /**
+     * Проверка сообщения об ошибке ввода месяца.
+     */
+    public void checkMonthInputErrorNotification() {
+        elements.getCardMonthInputError().shouldBe(Condition.visible);
+    }
+
+    /**
+     * Проверка сообщения об ошибке ввода года.
+     */
+    public void checkYearInputErrorNotification() {
+        elements.getCardYearInputError().shouldBe(Condition.visible);
+    }
+
+    /**
+     * Проверка сообщения об ошибке ввода имени владельца.
+     */
+    public void checkHolderInputErrorNotification() {
+        elements.getCardHolderInputError().shouldBe(Condition.visible);
+    }
+
+    /**
+     * Проверка сообщения об ошибке ввода CVC/CVV.
+     */
+    public void checkCvcInputErrorNotification() {
+        elements.getCardCvvInput().shouldBe(Condition.visible);
     }
 }

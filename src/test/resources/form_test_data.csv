@@ -1,0 +1,13 @@
+test_case_name,number,month,year,holder,cvc
+approved,4444 4444 4444 4441,12,24,Ivan Ivanov,123
+declined,4444 4444 4444 4442,12,24,Ivan Ivanov,123
+invalid_number,1234 5678 9012 345,12,24,Ivan Ivanov,123
+empty_number,,12,24,Ivan Ivanov,123
+invalid_month,4444 4444 4444 4441,15,24,Ivan Ivanov,123
+empty_month,4444 4444 4444 4441,,24,Ivan Ivanov,123
+invalid_year,4444 4444 4444 4441,12,35,Ivan Ivanov,123
+empty_year,4444 4444 4444 4441,12,,Ivan Ivanov,123
+invalid_holder,4444 4444 4444 4441,12,24,Ivan123,123
+empty_holder,4444 4444 4444 4441,12,24,,123
+invalid_cvc,4444 4444 4444 4441,12,24,Ivan Ivanov,12
+empty_cvc,4444 4444 4444 4441,12,24,Ivan Ivanov,

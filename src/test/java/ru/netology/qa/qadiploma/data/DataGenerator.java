@@ -1,40 +1,108 @@
 package ru.netology.qa.qadiploma.data;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
- * Класс для генерации тестовых данных для тестов.
+ * Класс для получения тестовых данных из .csv-файла.
  * Использует аннотацию @Value для создания иммутабельных объектов TestData.
  */
 public class DataGenerator {
 
-    /**
-     * Генерирует тестовые данные для успешной покупки.
-     *
-     * @return объект TestData с предустановленными значениями.
-     */
-    public static TestData getApprovedUserData() {
-        // Создаем и возвращаем объект TestData с валидными данными для принятия банком покупки
-        return new TestData(
-                "4444 4444 4444 4441",  // Номер карты
-                "12",                             // Месяц
-                "24",                            // Год
-                "Ivan Ivanov",                  // Имя владельца карты
-                "123"                          // CVC/CVV код
-        );
+    private static final String CSV_FILE_PATH = "src/test/resources/form_test_data.csv";
+    private static Map<String, TestData> testDataMap = new HashMap<>();
+
+    static {
+        loadTestDataFromCSV();
     }
 
     /**
-     * Генерирует тестовые данные для неудачной покупки.
-     *
-     * @return объект TestData с предустановленными значениями.
+     * Чтение тестовых данных из CSV-файла и сохранение их в Map.
      */
+    private static void loadTestDataFromCSV() {
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE_PATH))) {
+            List<String[]> records = reader.readAll();
+            for (int i = 1; i < records.size(); i++) {  // Пропускаем заголовок
+                String[] record = records.get(i);
+                String testCaseName = record[0];  // Название теста (поле test_case_name)
+                TestData testData = new TestData(
+                        record[1],  // Номер карты
+                        record[2],  // Месяц
+                        record[3],  // Год
+                        record[4],  // Имя владельца
+                        record[5]   // CVV
+                );
+                testDataMap.put(testCaseName, testData);  // Сохраняем данные в Map
+            }
+        } catch (IOException | CsvException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Метод для получения тестовых данных по имени теста.
+     *
+     * @param testCaseName название теста.
+     * @return объект TestData с данными для теста.
+     */
+    public static TestData getTestData(String testCaseName) {
+        return testDataMap.get(testCaseName);
+    }
+
+    /**
+     * Методы, возвращающие данные, соответствующие имени тест-кейса.
+     */
+    public static TestData getApprovedUserData() {
+        return getTestData("approved");
+    }
+
     public static TestData getDeclinedUserData() {
-        // Создаем и возвращаем объект TestData с валидными данными для отказа банком в покупке
-        return new TestData(
-                "4444 4444 4444 4443",  // Номер карты
-                "12",                             // Месяц
-                "24",                            // Год
-                "Ivan Ivanov",                  // Имя владельца карты
-                "123"                          // CVC/CVV код
-        );
+        return getTestData("declined");
+    }
+
+    public static TestData getInvalidNumberUserData() {
+        return getTestData("invalid_number");
+    }
+
+    public static TestData getEmptyNumberUserData() {
+        return getTestData("empty_number");
+    }
+
+    public static TestData getInvalidMonthUserData() {
+        return getTestData("invalid_month");
+    }
+
+    public static TestData getEmptyMonthUserData() {
+        return getTestData("empty_month");
+    }
+
+    public static TestData getInvalidYearUserData() {
+        return getTestData("invalid_year");
+    }
+
+    public static TestData getEmptyYearUserData() {
+        return getTestData("empty_year");
+    }
+
+    public static TestData getInvalidHolderUserData() {
+        return getTestData("invalid_holder");
+    }
+
+    public static TestData getEmptyHolderUserData() {
+        return getTestData("empty_holder");
+    }
+
+    public static TestData getInvalidCvcUserData() {
+        return getTestData("invalid_cvc");
+    }
+
+    public static TestData getEmptyCvcUserData() {
+        return getTestData("empty_cvc");
     }
 }
