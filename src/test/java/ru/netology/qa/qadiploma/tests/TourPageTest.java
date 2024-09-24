@@ -13,7 +13,6 @@ import ru.netology.qa.qadiploma.utils.TourPageActions;
  */
 public class TourPageTest {
 
-    private static TourPageElements elements;  // Класс, который хранит элементы страницы
     private static TourPageActions actions;    // Класс для выполнения действий на странице
 
     private static TestData approvedUserData;  // Тестовые данные для успешной покупки
@@ -34,12 +33,14 @@ public class TourPageTest {
     private static TestData invalidCvvUserData; // Тестовые данные с невалидным значением CVC/CVV
     private static TestData emptyCvvUserData; // Тестовые данные с пустым значением CVC/CVV
 
-    private int sleepTime = 20000; // Время задержки
+    private final int sleepTime = 20000; // Время задержки
 
     @BeforeAll
     public static void setup() {
 
-        elements = new TourPageElements();  // Инициализация элементов страницы
+        // Класс, который хранит элементы страницы
+        TourPageElements elements = new TourPageElements();  // Инициализация элементов страницы
+
         actions = new TourPageActions(elements);  // Инициализация действий с элементами
 
         // Создание объекта с тестовыми данными для успешной покупки

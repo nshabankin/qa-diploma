@@ -46,7 +46,7 @@ dependencies {
     testImplementation 'com.opencsv:opencsv:5.5.2'
 
     // MySQL Connector for database testing
-    //testImplementation 'mysql:mysql-connector-java:8.2.0'
+    testImplementation 'mysql:mysql-connector-java:8.0.33'
 
     // DbUtils for database utility
     //testImplementation 'org.apache.commons:commons-dbutils:1.7'

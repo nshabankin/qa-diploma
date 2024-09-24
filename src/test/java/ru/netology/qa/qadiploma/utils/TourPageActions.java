@@ -131,4 +131,18 @@ public class TourPageActions {
     public void checkCvcInputErrorNotification() {
         elements.getCardCvvInput().shouldBe(Condition.visible);
     }
+
+    /**
+     * Извлечение цены тура из элементов страницы.
+     */
+    public int getTourPrice() {
+
+        // Извлекаем текст цены и очищаем строку от лишних символов, оставляем только цифры
+        String priceText = elements.getPriceElement().getText().replaceAll("[^0-9]", "");
+
+        // Получаем int из String
+        int priceNumber = Integer.parseInt(priceText);
+
+        return priceNumber;
+    }
 }

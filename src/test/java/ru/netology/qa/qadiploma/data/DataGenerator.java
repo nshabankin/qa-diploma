@@ -16,7 +16,7 @@ import java.util.Map;
 public class DataGenerator {
 
     private static final String CSV_FILE_PATH = "src/test/resources/form_test_data.csv";
-    private static Map<String, TestData> testDataMap = new HashMap<>();
+    private static final Map<String, TestData> testDataMap = new HashMap<>();
 
     static {
         loadTestDataFromCSV();
