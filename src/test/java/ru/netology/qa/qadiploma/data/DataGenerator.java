@@ -90,8 +90,12 @@ public class DataGenerator {
         return getTestData("empty_year");
     }
 
-    public static TestData getInvalidHolderUserData() {
-        return getTestData("invalid_holder");
+    public static TestData getInvalidHolderNumbersUserData() {
+        return getTestData("invalid_holder_numbers");
+    }
+
+    public static TestData getInvalidHolderCyrillicUserData() {
+        return getTestData("invalid_holder_cyrillic");
     }
 
     public static TestData getEmptyHolderUserData() {

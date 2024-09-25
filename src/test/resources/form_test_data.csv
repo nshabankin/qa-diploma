@@ -7,7 +7,8 @@ invalid_month,4444 4444 4444 4441,15,24,Ivan Ivanov,123
 empty_month,4444 4444 4444 4441,,24,Ivan Ivanov,123
 invalid_year,4444 4444 4444 4441,12,35,Ivan Ivanov,123
 empty_year,4444 4444 4444 4441,12,,Ivan Ivanov,123
-invalid_holder,4444 4444 4444 4441,12,24,Ivan123,123
+invalid_holder_numbers,4444 4444 4444 4441,12,24,Ivan123,123
+invalid_holder_cyrillic,4444 4444 4444 4441,12,24,Иван Иванов,123
 empty_holder,4444 4444 4444 4441,12,24,,123
 invalid_cvc,4444 4444 4444 4441,12,24,Ivan Ivanov,12
 empty_cvc,4444 4444 4444 4441,12,24,Ivan Ivanov,

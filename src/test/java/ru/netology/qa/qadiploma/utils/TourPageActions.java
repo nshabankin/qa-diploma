@@ -5,6 +5,8 @@ import com.codeborne.selenide.Selenide;
 import lombok.AllArgsConstructor;
 import ru.netology.qa.qadiploma.pages.TourPageElements;
 
+import static com.codeborne.selenide.Condition.text;
+
 @AllArgsConstructor
 public class TourPageActions {
 
@@ -98,38 +100,73 @@ public class TourPageActions {
     }
 
     /**
-     * Проверка сообщения об ошибке ввода номера карты.
+     * Проверка сообщения об ошибке при невалидном значении номера карты.
      */
-    public void checkNumberInputErrorNotification() {
-        elements.getCardNumberInputError().shouldBe(Condition.visible);
+    public void checkNumberInvalidInputErrorNotification() {
+        elements.getCardNumberInputError().shouldBe(Condition.visible).shouldHave(text("Неверный формат"));
     }
 
     /**
-     * Проверка сообщения об ошибке ввода месяца.
+     * Проверка сообщения об ошибке при пустом значении номера карты.
      */
-    public void checkMonthInputErrorNotification() {
-        elements.getCardMonthInputError().shouldBe(Condition.visible);
+    public void checkNumberEmptyInputErrorNotification() {
+        elements.getCardNumberInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
-     * Проверка сообщения об ошибке ввода года.
+     * Проверка сообщения об ошибке при невалидном значении месяца.
      */
-    public void checkYearInputErrorNotification() {
-        elements.getCardYearInputError().shouldBe(Condition.visible);
+    public void checkMonthInvalidInputErrorNotification() {
+        elements.getCardMonthInputError().shouldBe(Condition.visible).shouldHave(text("Неверно указан срок действия карты"));
     }
 
     /**
-     * Проверка сообщения об ошибке ввода имени владельца.
+     * Проверка сообщения об ошибке при пустом значении месяца.
      */
-    public void checkHolderInputErrorNotification() {
-        elements.getCardHolderInputError().shouldBe(Condition.visible);
+    public void checkMonthEmptyInputErrorNotification() {
+        elements.getCardMonthInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
-     * Проверка сообщения об ошибке ввода CVC/CVV.
+     * Проверка сообщения об ошибке при невалидном значении года.
      */
-    public void checkCvcInputErrorNotification() {
-        elements.getCardCvvInput().shouldBe(Condition.visible);
+    public void checkYearInvalidInputErrorNotification() {
+        elements.getCardYearInputError().shouldBe(Condition.visible).shouldHave(text("Неверно указан срок действия карты"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при пустом значении года.
+     */
+    public void checkYearEmptyInputErrorNotification() {
+        elements.getCardYearInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при невалидном имени владельца.
+     */
+    public void checkHolderInvalidInputErrorNotification() {
+        elements.getCardHolderInputError().shouldBe(Condition.visible).shouldHave(text("Неверный формат"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при пустом значении имени владельца.
+     */
+    public void checkHolderEmptyInputErrorNotification() {
+        elements.getCardHolderInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при невалидном CVC/CVV.
+     */
+    public void checkCvcInvalidInputErrorNotification() {
+        elements.getCardCvvInputError().shouldBe(Condition.visible).shouldHave(text("Неверный формат"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при пустом значении CVC/CVV.
+     */
+    public void checkCvcEmptyInputErrorNotification() {
+        elements.getCardCvvInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
@@ -140,9 +177,7 @@ public class TourPageActions {
         // Извлекаем текст цены и очищаем строку от лишних символов, оставляем только цифры
         String priceText = elements.getPriceElement().getText().replaceAll("[^0-9]", "");
 
-        // Получаем int из String
-        int priceNumber = Integer.parseInt(priceText);
-
-        return priceNumber;
+        // Возвращаем int из String
+        return Integer.parseInt(priceText);
     }
 }

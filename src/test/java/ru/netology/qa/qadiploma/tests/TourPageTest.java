@@ -27,7 +27,8 @@ public class TourPageTest {
     private static TestData invalidYearUserData; // Тестовые данные с невалидным значением года
     private static TestData emptyYearUserData; // Тестовые данные с пустым значением года
 
-    private static TestData invalidHolderUserData; // Тестовые данные с невалидным значением имени владельца
+    private static TestData invalidHolderNumbersUserData; // Тестовые данные с невалидным значением имени владельца (содержащие цифры)
+    private static TestData invalidHolderCyrillicUserData; // Тестовые данные с невалидным значением имени владельца (содержащие кириллицу)
     private static TestData emptyHolderUserData; // Тестовые данные с пустым значением имени владельца
 
     private static TestData invalidCvvUserData; // Тестовые данные с невалидным значением CVC/CVV
@@ -68,7 +69,8 @@ public class TourPageTest {
         emptyYearUserData = DataGenerator.getEmptyYearUserData();
 
         // Создание объекта с тестовыми данными с невалидным именем владельца
-        invalidHolderUserData = DataGenerator.getInvalidHolderUserData();
+        invalidHolderNumbersUserData = DataGenerator.getInvalidHolderNumbersUserData();
+        invalidHolderCyrillicUserData = DataGenerator.getInvalidHolderCyrillicUserData();
 
         // Создание объекта с тестовыми данными с пустым значением имени владельца
         emptyHolderUserData = DataGenerator.getEmptyHolderUserData();
@@ -165,7 +167,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkNumberInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -181,7 +183,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkNumberInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -197,7 +199,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkNumberEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -213,7 +215,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkNumberEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -229,7 +231,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkMonthInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -245,7 +247,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkMonthInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -261,7 +263,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkMonthEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -277,7 +279,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkMonthEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -293,7 +295,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkYearInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -309,7 +311,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkYearInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -325,7 +327,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkYearEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -341,39 +343,71 @@ public class TourPageTest {
         actions.enterCardCvv(emptyYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkYearEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowHolderErrorForDebitPurchase() {
+    public void shouldShowHolderNumbersErrorForDebitPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
         // Передаем тестовые данные в методы
-        actions.enterCardNumber(invalidHolderUserData.getCardNumber());  // Вводим номер карты
-        actions.enterCardMonth(invalidHolderUserData.getCardMonth());  // Вводим месяц
-        actions.enterCardYear(invalidHolderUserData.getCardYear());  // Вводим год
-        actions.enterCardHolderName(invalidHolderUserData.getCardHolderName());  // Вводим имя владельца
-        actions.enterCardCvv(invalidHolderUserData.getCardCvv());  // Вводим CVC/CVV код
+        actions.enterCardNumber(invalidHolderNumbersUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(invalidHolderNumbersUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(invalidHolderNumbersUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(invalidHolderNumbersUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(invalidHolderNumbersUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowHolderErrorForCreditPurchase() {
+    public void shouldShowHolderCyrillicErrorForDebitPurchase() {
+        actions.openPage();  // Открываем страницу
+        actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
+
+        // Передаем тестовые данные в методы
+        actions.enterCardNumber(invalidHolderCyrillicUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(invalidHolderCyrillicUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(invalidHolderCyrillicUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(invalidHolderCyrillicUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(invalidHolderCyrillicUserData.getCardCvv());  // Вводим CVC/CVV код
+
+        actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
+        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+    }
+
+    @Test
+    public void shouldShowHolderNumbersErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
         // Передаем тестовые данные в методы
-        actions.enterCardNumber(invalidHolderUserData.getCardNumber());  // Вводим номер карты
-        actions.enterCardMonth(invalidHolderUserData.getCardMonth());  // Вводим месяц
-        actions.enterCardYear(invalidHolderUserData.getCardYear());  // Вводим год
-        actions.enterCardHolderName(invalidHolderUserData.getCardHolderName());  // Вводим имя владельца
-        actions.enterCardCvv(invalidHolderUserData.getCardCvv());  // Вводим CVC/CVV код
+        actions.enterCardNumber(invalidHolderNumbersUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(invalidHolderNumbersUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(invalidHolderNumbersUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(invalidHolderNumbersUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(invalidHolderNumbersUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+    }
+
+    @Test
+    public void shouldShowHolderCyrillicErrorForCreditPurchase() {
+        actions.openPage();  // Открываем страницу
+        actions.selectCreditPayment();  // Выбираем оплату кредитом
+
+        // Передаем тестовые данные в методы
+        actions.enterCardNumber(invalidHolderCyrillicUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(invalidHolderCyrillicUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(invalidHolderCyrillicUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(invalidHolderCyrillicUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(invalidHolderCyrillicUserData.getCardCvv());  // Вводим CVC/CVV код
+
+        actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
+        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -389,7 +423,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyHolderUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkHolderEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -405,7 +439,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyHolderUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkHolderEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -421,7 +455,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkCvcInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -437,7 +471,7 @@ public class TourPageTest {
         actions.enterCardCvv(invalidCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkCvcInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -453,7 +487,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkCvcEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
@@ -469,7 +503,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkCvcEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 }
 
