@@ -1,8 +1,16 @@
 package ru.netology.qa.qadiploma.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import com.epam.reportportal.junit5.ReportPortalExtension;
+import com.epam.reportportal.selenide.ReportPortalSelenideEventListener;
 import lombok.SneakyThrows;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import ru.netology.qa.qadiploma.data.DataGenerator;
 import ru.netology.qa.qadiploma.data.TestData;
 import ru.netology.qa.qadiploma.pages.TourPageElements;
@@ -13,6 +21,8 @@ import ru.netology.qa.qadiploma.utils.TourPageActions;
  */
 public class TourPageTest {
 
+    private static final Logger LOGGER = LogManager.getLogger(TourPageTest.class);
+
     private static TourPageActions actions;    // Класс для выполнения действий на странице
 
     private static TestData approvedUserData;  // Тестовые данные для успешной покупки
@@ -22,9 +32,11 @@ public class TourPageTest {
     private static TestData emptyNumberUserData; // Тестовые данные с пустым значением номера карты
 
     private static TestData invalidMonthUserData; // Тестовые данные с невалидным значением месяца
+    private static TestData expiredMonthUserData; // Тестовые данные с истёкшим значением месяца
     private static TestData emptyMonthUserData; // Тестовые данные с пустым значением месяца
 
     private static TestData invalidYearUserData; // Тестовые данные с невалидным значением года
+    private static TestData expiredYearUserData; // Тестовые данные с истёкшим значением года
     private static TestData emptyYearUserData; // Тестовые данные с пустым значением года
 
     private static TestData invalidHolderNumbersUserData; // Тестовые данные с невалидным значением имени владельца (содержащие цифры)
@@ -34,7 +46,7 @@ public class TourPageTest {
     private static TestData invalidCvvUserData; // Тестовые данные с невалидным значением CVC/CVV
     private static TestData emptyCvvUserData; // Тестовые данные с пустым значением CVC/CVV
 
-    private final int sleepTime = 20000; // Время задержки
+    private final int sleepTime = 10000; // Время задержки
 
     @BeforeAll
     public static void setup() {
@@ -58,12 +70,14 @@ public class TourPageTest {
 
         // Создание объекта с тестовыми данными с невалидным месяцем
         invalidMonthUserData = DataGenerator.getInvalidMonthUserData();
+        expiredMonthUserData = DataGenerator.getExpiredMonthUserData();
 
         // Создание объекта с тестовыми данными с пустым значением месяца
         emptyMonthUserData = DataGenerator.getEmptyMonthUserData();
 
         // Создание объекта с тестовыми данными с невалидным годом
         invalidYearUserData = DataGenerator.getInvalidYearUserData();
+        expiredYearUserData = DataGenerator.getExpiredYearUserData();
 
         // Создание объекта с тестовыми данными с пустым значением года
         emptyYearUserData = DataGenerator.getEmptyYearUserData();
@@ -82,9 +96,26 @@ public class TourPageTest {
         emptyCvvUserData = DataGenerator.getEmptyCvcUserData();
     }
 
+    @BeforeEach
+    @DisplayName("ReportPortal logging")
+    @ExtendWith(ReportPortalExtension.class)
+    void reportPortalLogging() {
+        SelenideLogger.addListener("Report Portal logger", new ReportPortalSelenideEventListener());
+        LOGGER.info("Logged into ReportPortal");
+    }
+
+    @Test
+    @DisplayName("Tour title element should be visible")
+    public void shouldDisplayTourTitle() {
+        actions.openPage(); // Открываем страницу
+
+        actions.checkTourTitleVisibility(); // Проверяем видимость заголовка тура
+    }
+
     @SneakyThrows
     @Test
-    public void testSuccessfulDebitCardPurchase() {
+    @DisplayName("Should show successful debit card purchase")
+    public void shouldShowSuccessfulDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -102,7 +133,8 @@ public class TourPageTest {
 
     @SneakyThrows
     @Test
-    public void testUnsuccessfulDebitCardPurchase() {
+    @DisplayName("Should show unsuccessful debit card purchase")
+    public void shouldShowUnsuccessfulDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -120,7 +152,8 @@ public class TourPageTest {
 
     @SneakyThrows
     @Test
-    public void testSuccessfulCreditPurchase() {
+    @DisplayName("Should show successful credit purchase")
+    public void shouldShowSuccessfulCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -138,7 +171,8 @@ public class TourPageTest {
 
     @SneakyThrows
     @Test
-    public void testUnsuccessfulCreditPurchase() {
+    @DisplayName("Should show unsuccessful credit purchase")
+    public void shouldShowUnsuccessfulCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -155,7 +189,8 @@ public class TourPageTest {
     }
 
     @Test
-    public void shouldShowNumberErrorForDebitPurchase() {
+    @DisplayName("Should show invalid number error for debit card purchase")
+    public void shouldShowInvalidNumberErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -167,11 +202,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowNumberErrorForCreditPurchase() {
+    @DisplayName("Should show invalid number error for credit purchase")
+    public void shouldShowInvalidNumberErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -183,11 +219,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowEmptyNumberErrorForDebitPurchase() {
+    @DisplayName("Should show empty number error for debit card purchase")
+    public void shouldShowEmptyNumberErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -199,10 +236,11 @@ public class TourPageTest {
         actions.enterCardCvv(emptyNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
+    @DisplayName("Should show empty number error for credit purchase")
     public void shouldShowEmptyNumberErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
@@ -215,11 +253,12 @@ public class TourPageTest {
         actions.enterCardCvv(emptyNumberUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkNumberEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyNumberInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowMonthErrorForDebitPurchase() {
+    @DisplayName("Should show invalid month error for debit card purchase")
+    public void shouldShowInvalidMonthErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -231,11 +270,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowMonthErrorForCreditPurchase() {
+    @DisplayName("Should show invalid month error for credit purchase")
+    public void shouldShowInvalidMonthErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -247,11 +287,46 @@ public class TourPageTest {
         actions.enterCardCvv(invalidMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowEmptyMonthErrorForDebitPurchase() {
+    @DisplayName("Should show expired month error for debit card purchase")
+    public void shouldShowExpiredMonthErrorForDebitCardPurchase() {
+        actions.openPage();  // Открываем страницу
+        actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
+
+        // Передаем тестовые данные в методы
+        actions.enterCardNumber(expiredMonthUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(expiredMonthUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(expiredMonthUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(expiredMonthUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(expiredMonthUserData.getCardCvv());  // Вводим CVC/CVV код
+
+        actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
+        actions.checkExpiredMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+    }
+
+    @Test
+    @DisplayName("Should show expired month error for credit purchase")
+    public void shouldShowExpiredMonthErrorForCreditPurchase() {
+        actions.openPage();  // Открываем страницу
+        actions.selectCreditPayment();  // Выбираем оплату кредитом
+
+        // Передаем тестовые данные в методы
+        actions.enterCardNumber(expiredMonthUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(expiredMonthUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(expiredMonthUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(expiredMonthUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(expiredMonthUserData.getCardCvv());  // Вводим CVC/CVV код
+
+        actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
+        actions.checkExpiredMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+    }
+
+    @Test
+    @DisplayName("Should show empty month error for debit card purchase")
+    public void shouldShowEmptyMonthErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -263,10 +338,11 @@ public class TourPageTest {
         actions.enterCardCvv(emptyMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
+    @DisplayName("Should show empty month error for credit purchase")
     public void shouldShowEmptyMonthErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
@@ -279,11 +355,12 @@ public class TourPageTest {
         actions.enterCardCvv(emptyMonthUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkMonthEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyMonthInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowYearErrorForDebitPurchase() {
+    @DisplayName("Should show invalid year error for debit card purchase")
+    public void shouldShowInvalidYearErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -295,11 +372,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowYearErrorForCreditPurchase() {
+    @DisplayName("Should show invalid year error for credit purchase")
+    public void shouldShowInvalidYearErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -311,11 +389,46 @@ public class TourPageTest {
         actions.enterCardCvv(invalidYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowEmptyYearErrorForDebitPurchase() {
+    @DisplayName("Should show expired year error for debit card purchase")
+    public void shouldShowExpiredYearErrorForDebitCardPurchase() {
+        actions.openPage();  // Открываем страницу
+        actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
+
+        // Передаем тестовые данные в методы
+        actions.enterCardNumber(expiredYearUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(expiredYearUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(expiredYearUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(expiredYearUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(expiredYearUserData.getCardCvv());  // Вводим CVC/CVV код
+
+        actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
+        actions.checkExpiredYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+    }
+
+    @Test
+    @DisplayName("Should show expired year error for credit purchase")
+    public void shouldShowExpiredYearErrorForCreditPurchase() {
+        actions.openPage();  // Открываем страницу
+        actions.selectCreditPayment();  // Выбираем оплату кредитом
+
+        // Передаем тестовые данные в методы
+        actions.enterCardNumber(expiredYearUserData.getCardNumber());  // Вводим номер карты
+        actions.enterCardMonth(expiredYearUserData.getCardMonth());  // Вводим месяц
+        actions.enterCardYear(expiredYearUserData.getCardYear());  // Вводим год
+        actions.enterCardHolderName(expiredYearUserData.getCardHolderName());  // Вводим имя владельца
+        actions.enterCardCvv(expiredYearUserData.getCardCvv());  // Вводим CVC/CVV код
+
+        actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
+        actions.checkExpiredYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+    }
+
+    @Test
+    @DisplayName("Should show empty year error for debit card purchase")
+    public void shouldShowEmptyYearErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -327,10 +440,11 @@ public class TourPageTest {
         actions.enterCardCvv(emptyYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
+    @DisplayName("Should show empty year error for credit purchase")
     public void shouldShowEmptyYearErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
@@ -343,11 +457,12 @@ public class TourPageTest {
         actions.enterCardCvv(emptyYearUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkYearEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyYearInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowHolderNumbersErrorForDebitPurchase() {
+    @DisplayName("Should show error for invalid holder name containing numbers for debit card purchase")
+    public void shouldShowInvalidHolderNumbersErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -359,11 +474,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidHolderNumbersUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowHolderCyrillicErrorForDebitPurchase() {
+    @DisplayName("Should show error for invalid holder name containing cyrillic symbols for debit card purchase")
+    public void shouldShowInvalidHolderCyrillicErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -375,11 +491,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidHolderCyrillicUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowHolderNumbersErrorForCreditPurchase() {
+    @DisplayName("Should show error for invalid holder name containing numbers for credit purchase")
+    public void shouldShowInvalidHolderNumbersErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -391,11 +508,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidHolderNumbersUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowHolderCyrillicErrorForCreditPurchase() {
+    @DisplayName("Should show error for invalid holder name containing cyrillic symbols for credit purchase")
+    public void shouldShowInvalidHolderCyrillicErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
@@ -407,11 +525,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidHolderCyrillicUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowEmptyHolderErrorForDebitPurchase() {
+    @DisplayName("Should show empty holder name error for debit card purchase")
+    public void shouldShowEmptyHolderErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -423,10 +542,11 @@ public class TourPageTest {
         actions.enterCardCvv(emptyHolderUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
+    @DisplayName("Should show empty holder name error for credit purchase")
     public void shouldShowEmptyHolderErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
@@ -439,11 +559,12 @@ public class TourPageTest {
         actions.enterCardCvv(emptyHolderUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkHolderEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyHolderInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowCvvErrorForDebitPurchase() {
+    @DisplayName("Should show invalid CVC/CVV error for debit card purchase")
+    public void shouldShowInvalidCvvErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -455,10 +576,11 @@ public class TourPageTest {
         actions.enterCardCvv(invalidCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
+    @DisplayName("Should show invalid CVC/CVV error for credit purchase")
     public void shouldShowCvvErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
@@ -471,11 +593,12 @@ public class TourPageTest {
         actions.enterCardCvv(invalidCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcInvalidInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkInvalidCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
-    public void shouldShowEmptyCvvErrorForDebitPurchase() {
+    @DisplayName("Should show empty CVC/CVV error for debit card purchase")
+    public void shouldShowEmptyCvvErrorForDebitCardPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectDebitCardPayment();  // Выбираем оплату по дебетовой карте
 
@@ -487,10 +610,11 @@ public class TourPageTest {
         actions.enterCardCvv(emptyCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 
     @Test
+    @DisplayName("Should show empty CVC/CVV error for credit purchase")
     public void shouldShowEmptyCvvErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
@@ -503,7 +627,7 @@ public class TourPageTest {
         actions.enterCardCvv(emptyCvvUserData.getCardCvv());  // Вводим CVC/CVV код
 
         actions.submitPurchase();  // Нажимаем на кнопку "Продолжить"
-        actions.checkCvcEmptyInputErrorNotification();  // Проверяем сообщение об ошибке в поле
+        actions.checkEmptyCvcInputErrorNotification();  // Проверяем сообщение об ошибке в поле
     }
 }
 

@@ -4,8 +4,10 @@ declined,4444 4444 4444 4442,12,24,Ivan Ivanov,123
 invalid_number,1234 5678 9012 345,12,24,Ivan Ivanov,123
 empty_number,,12,24,Ivan Ivanov,123
 invalid_month,4444 4444 4444 4441,15,24,Ivan Ivanov,123
+expired_month,4444 4444 4444 4441,01,24,Ivan Ivanov,123
 empty_month,4444 4444 4444 4441,,24,Ivan Ivanov,123
 invalid_year,4444 4444 4444 4441,12,35,Ivan Ivanov,123
+expired_year,4444 4444 4444 4441,12,23,Ivan Ivanov,123
 empty_year,4444 4444 4444 4441,12,,Ivan Ivanov,123
 invalid_holder_numbers,4444 4444 4444 4441,12,24,Ivan123,123
 invalid_holder_cyrillic,4444 4444 4444 4441,12,24,Иван Иванов,123

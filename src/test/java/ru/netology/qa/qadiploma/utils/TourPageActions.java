@@ -82,91 +82,112 @@ public class TourPageActions {
      * Проверка успешного завершения покупки.
      */
     public void checkSuccessNotification() {
-        elements.getSuccessNotification().shouldBe(Condition.visible);
+        elements.getSuccessNotification().shouldBe(Condition.visible).shouldHave(text("Успешно"));
     }
 
     /**
      * Проверка сообщения об ошибке при покупке.
      */
     public void checkErrorNotification() {
-        elements.getErrorNotification().shouldBe(Condition.visible);
+        elements.getErrorNotification().shouldBe(Condition.visible).shouldHave(text("Ошибка"));
     }
 
     /**
      * Открытие страницы.
      */
     public void openPage() {
-        Selenide.open("http://localhost:8080/");
+        Selenide.open("http://localhost:8082/");
     }
 
     /**
      * Проверка сообщения об ошибке при невалидном значении номера карты.
      */
-    public void checkNumberInvalidInputErrorNotification() {
+    public void checkInvalidNumberInputErrorNotification() {
         elements.getCardNumberInputError().shouldBe(Condition.visible).shouldHave(text("Неверный формат"));
     }
 
     /**
      * Проверка сообщения об ошибке при пустом значении номера карты.
      */
-    public void checkNumberEmptyInputErrorNotification() {
+    public void checkEmptyNumberInputErrorNotification() {
         elements.getCardNumberInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
      * Проверка сообщения об ошибке при невалидном значении месяца.
      */
-    public void checkMonthInvalidInputErrorNotification() {
+    public void checkInvalidMonthInputErrorNotification() {
         elements.getCardMonthInputError().shouldBe(Condition.visible).shouldHave(text("Неверно указан срок действия карты"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при истёкшем значении месяца.
+     */
+    public void checkExpiredMonthInputErrorNotification() {
+        elements.getCardMonthInputError().shouldBe(Condition.visible).shouldHave(text("Истёк срок действия карты"));
     }
 
     /**
      * Проверка сообщения об ошибке при пустом значении месяца.
      */
-    public void checkMonthEmptyInputErrorNotification() {
+    public void checkEmptyMonthInputErrorNotification() {
         elements.getCardMonthInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
      * Проверка сообщения об ошибке при невалидном значении года.
      */
-    public void checkYearInvalidInputErrorNotification() {
+    public void checkInvalidYearInputErrorNotification() {
         elements.getCardYearInputError().shouldBe(Condition.visible).shouldHave(text("Неверно указан срок действия карты"));
+    }
+
+    /**
+     * Проверка сообщения об ошибке при истёкшем значении года.
+     */
+    public void checkExpiredYearInputErrorNotification() {
+        elements.getCardYearInputError().shouldBe(Condition.visible).shouldHave(text("Истёк срок действия карты"));
     }
 
     /**
      * Проверка сообщения об ошибке при пустом значении года.
      */
-    public void checkYearEmptyInputErrorNotification() {
+    public void checkEmptyYearInputErrorNotification() {
         elements.getCardYearInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
      * Проверка сообщения об ошибке при невалидном имени владельца.
      */
-    public void checkHolderInvalidInputErrorNotification() {
+    public void checkInvalidHolderInputErrorNotification() {
         elements.getCardHolderInputError().shouldBe(Condition.visible).shouldHave(text("Неверный формат"));
     }
 
     /**
      * Проверка сообщения об ошибке при пустом значении имени владельца.
      */
-    public void checkHolderEmptyInputErrorNotification() {
+    public void checkEmptyHolderInputErrorNotification() {
         elements.getCardHolderInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
     }
 
     /**
      * Проверка сообщения об ошибке при невалидном CVC/CVV.
      */
-    public void checkCvcInvalidInputErrorNotification() {
+    public void checkInvalidCvcInputErrorNotification() {
         elements.getCardCvvInputError().shouldBe(Condition.visible).shouldHave(text("Неверный формат"));
     }
 
     /**
      * Проверка сообщения об ошибке при пустом значении CVC/CVV.
      */
-    public void checkCvcEmptyInputErrorNotification() {
+    public void checkEmptyCvcInputErrorNotification() {
         elements.getCardCvvInputError().shouldBe(Condition.visible).shouldHave(text("Поле обязательно для заполнения"));
+    }
+
+    /**
+     * Проверка видимости заголовка тура.
+     */
+    public void checkTourTitleVisibility() {
+        elements.getTourTitle().shouldBe(Condition.visible);
     }
 
     /**

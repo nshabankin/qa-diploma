@@ -14,7 +14,7 @@ public class TourPageElements {
     private final SelenideElement tourTitle = $(".Order_cardHeading__2PyrG");
 
     // Элемент цены тура
-    SelenideElement priceElement = $$(".Order_cardPreview__47B2k .list__item").last();
+    private final SelenideElement priceElement = $$(".Order_cardPreview__47B2k .list__item").last();
 
     // Кнопка переключения на оплату по дебетовой карте
     private final SelenideElement buyWithDebitCardButton = $$(".button__text")

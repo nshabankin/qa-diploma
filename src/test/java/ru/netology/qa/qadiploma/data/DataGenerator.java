@@ -78,12 +78,20 @@ public class DataGenerator {
         return getTestData("invalid_month");
     }
 
+    public static TestData getExpiredMonthUserData() {
+        return getTestData("expired_month");
+    }
+
     public static TestData getEmptyMonthUserData() {
         return getTestData("empty_month");
     }
 
     public static TestData getInvalidYearUserData() {
         return getTestData("invalid_year");
+    }
+
+    public static TestData getExpiredYearUserData() {
+        return getTestData("expired_year");
     }
 
     public static TestData getEmptyYearUserData() {
