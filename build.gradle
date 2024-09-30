@@ -13,7 +13,7 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
 allure {
-    version = '2.13.3'
+    version = '2.20.1'
 }
 
 repositories {
@@ -52,7 +52,7 @@ dependencies {
     //testImplementation 'org.apache.commons:commons-dbutils:1.7'
 
     // PostgreSQL JDBC Driver
-    //testImplementation 'org.postgresql:postgresql:42.6.0'
+    testImplementation 'org.postgresql:postgresql:42.2.24'
 
 }
 
@@ -62,4 +62,5 @@ test {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     systemProperty 'chromeoptions.prefs', System.getProperty('chromeoptions.prefs', "profile.password_manager_leak_detection=false")
+    systemProperty "allure.results.directory", "build/allure-results"
 }

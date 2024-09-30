@@ -13,14 +13,14 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DbTest {
+public class MySqlDbTest {
 
     TourPageElements elements = new TourPageElements();
     TourPageActions actions = new TourPageActions(elements);
     String card1Number = DataGenerator.getApprovedUserData().getCardNumber();
     String card2Number = DataGenerator.getDeclinedUserData().getCardNumber();
 
-    private Connection getConnection() throws SQLException {
+    private Connection getMySQLConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/app";
         String username = "app";
         String password = "pass";
@@ -40,7 +40,7 @@ public class DbTest {
         actions.openPage();
         int tourPrice = actions.getTourPrice();
 
-        try (Connection connection = getConnection();
+        try (Connection connection = getMySQLConnection();
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 
@@ -79,7 +79,7 @@ public class DbTest {
         // SQL запрос к таблице order_entity
         String query = "SELECT id, created, credit_id, payment_id FROM order_entity";
 
-        try (Connection connection = getConnection();
+        try (Connection connection = getMySQLConnection();
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 
@@ -116,7 +116,7 @@ public class DbTest {
         // SQL запрос к таблице credit_request_entity
         String query = "SELECT id, bank_id, created, status FROM credit_request_entity";
 
-        try (Connection connection = getConnection();
+        try (Connection connection = getMySQLConnection();
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 
@@ -126,7 +126,6 @@ public class DbTest {
                 String bankId = resultSet.getString("bank_id");
                 String created = resultSet.getString("created");
                 String status = resultSet.getString("status");
-
 
                 // Проверяем, что все поля корректны и не содержат чувствительной информации
                 assertNotNull(id, "ID не должен быть null");

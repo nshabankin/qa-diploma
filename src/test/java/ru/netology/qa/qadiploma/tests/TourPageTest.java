@@ -46,7 +46,7 @@ public class TourPageTest {
     private static TestData invalidCvvUserData; // Тестовые данные с невалидным значением CVC/CVV
     private static TestData emptyCvvUserData; // Тестовые данные с пустым значением CVC/CVV
 
-    private final int sleepTime = 10000; // Время задержки
+    private final int sleepTime = 20000; // Время задержки
 
     @BeforeAll
     public static void setup() {
