@@ -581,7 +581,7 @@ public class TourPageTest {
 
     @Test
     @DisplayName("Should show invalid CVC/CVV error for credit purchase")
-    public void shouldShowCvvErrorForCreditPurchase() {
+    public void shouldShowInvalidCvvErrorForCreditPurchase() {
         actions.openPage();  // Открываем страницу
         actions.selectCreditPayment();  // Выбираем оплату кредитом
 
