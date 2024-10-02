@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"3f895788fe3b0b6d962038fad8ffb13b","name":"ru.netology.qa.qadiploma.tests.TourPageTest","statistic":{"failed":14,"broken":0,"skipped":0,"passed":17,"unknown":0,"total":31}},{"uid":"7da5e610b40f97100fc94263e1da88a8","name":"ru.netology.qa.qadiploma.tests.MySqlDbTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}

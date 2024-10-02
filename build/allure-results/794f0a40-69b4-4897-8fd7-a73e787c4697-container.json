@@ -1,0 +1,1 @@
+{"uuid":"794f0a40-69b4-4897-8fd7-a73e787c4697","name":"Should show successful credit purchase","children":["075aa22e-85e3-46c5-add0-17fe40aa8a20"],"befores":[{"name":"reportPortalLogging","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1727869945635,"stop":1727869945635}],"afters":[],"start":1727869945633,"stop":1727869966811}

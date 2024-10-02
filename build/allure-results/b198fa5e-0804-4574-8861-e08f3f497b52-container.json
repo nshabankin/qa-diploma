@@ -1,0 +1,1 @@
+{"uuid":"b198fa5e-0804-4574-8861-e08f3f497b52","name":"Tour title element should be visible","children":["eddb7243-aefc-43c2-8091-31ae0de64255"],"befores":[{"name":"reportPortalLogging","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1727869918397,"stop":1727869918398}],"afters":[],"start":1727869918394,"stop":1727869918456}

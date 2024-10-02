@@ -1,0 +1,1 @@
+{"uuid":"941c4a47-3e14-439d-a19d-aa46041ac566","name":"Should show invalid year error for credit purchase","children":["8b3b18a1-2dc1-4f74-b9dd-07e8c9cff57c"],"befores":[{"name":"reportPortalLogging","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1727870003454,"stop":1727870003455}],"afters":[],"start":1727870003451,"stop":1727870004775}

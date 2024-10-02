@@ -1,0 +1,1 @@
+{"uuid":"3d51645a-9c03-4430-b5df-e6ca3db75d7b","name":"Should show successful debit card purchase","children":["c568c212-b2de-4a4d-9d8e-e5398b1a24b0"],"befores":[{"name":"reportPortalLogging","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1727870023618,"stop":1727870023624}],"afters":[],"start":1727870023615,"stop":1727870044773}

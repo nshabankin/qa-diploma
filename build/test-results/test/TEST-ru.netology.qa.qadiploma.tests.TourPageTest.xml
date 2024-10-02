@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.qa.qadiploma.tests.TourPageTest" tests="31" skipped="0" failures="14" errors="0" timestamp="2024-10-02T11:51:08" hostname="DESKTOP-20OQ1V5" time="177.938">
+  <properties/>
+  <testcase name="Should show invalid number error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.476"/>
+  <testcase name="Should show empty year error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.664">
+    <failure message="Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Год&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверный формат&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869875035.0.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869875035.0.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Год&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'
+Actual value: text=&quot;Неверный формат&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869875035.0.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869875035.0.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkEmptyYearInputErrorNotification(TourPageActions.java:155)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowEmptyYearErrorForDebitCardPurchase(TourPageTest.java:443)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show expired month error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.541">
+    <failure message="Element should have text &quot;Истёк срок действия карты&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверно указан срок действия карты&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверно указан срок действия карты&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869880660.1.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869880660.1.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Истёк срок действия карты&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверно указан срок действия карты&lt;/span&gt;'
+Actual value: text=&quot;Неверно указан срок действия карты&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869880660.1.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869880660.1.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkExpiredMonthInputErrorNotification(TourPageActions.java:127)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowExpiredMonthErrorForCreditPurchase(TourPageTest.java:324)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show expired year error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.448"/>
+  <testcase name="Should show unsuccessful credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="25.601">
+    <failure message="Element not found {.notification__title.findBy(text &quot;Ошибка&quot;)}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869907705.2.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869907705.2.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: Cannot locate an element .notification__title.findBy(text &quot;Ошибка&quot;)" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.notification__title.findBy(text &quot;Ошибка&quot;)}
+Expected: visible
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869907705.2.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869907705.2.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: Cannot locate an element .notification__title.findBy(text &quot;Ошибка&quot;)
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldBe(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkErrorNotification(TourPageActions.java:92)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowUnsuccessfulCreditPurchase(TourPageTest.java:188)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element .notification__title.findBy(text &quot;Ошибка&quot;)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: driver.version: unknown
+	at app//com.codeborne.selenide.impl.CollectionElementByCondition.getWebElement(CollectionElementByCondition.java:55)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 13 more
+</failure>
+  </testcase>
+  <testcase name="Should show empty month error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.396">
+    <failure message="Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверный формат&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869913169.3.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869913169.3.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'
+Actual value: text=&quot;Неверный формат&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869913169.3.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869913169.3.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkEmptyMonthInputErrorNotification(TourPageActions.java:134)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowEmptyMonthErrorForDebitCardPurchase(TourPageTest.java:341)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show invalid CVC/CVV error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.294"/>
+  <testcase name="Should show invalid month error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.215"/>
+  <testcase name="Should show invalid CVC/CVV error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.283"/>
+  <testcase name="Should show empty CVC/CVV error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.238"/>
+  <testcase name="Tour title element should be visible" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="0.059"/>
+  <testcase name="Should show invalid month error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.198"/>
+  <testcase name="Should show empty number error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.307">
+    <failure message="Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Номер карты&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверный формат&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869924726.4.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869924726.4.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Номер карты&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'
+Actual value: text=&quot;Неверный формат&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869924726.4.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869924726.4.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkEmptyNumberInputErrorNotification(TourPageActions.java:113)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowEmptyNumberErrorForDebitCardPurchase(TourPageTest.java:239)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show invalid number error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.938"/>
+  <testcase name="Should show empty month error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.39">
+    <failure message="Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверный формат&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869932113.5.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869932113.5.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'
+Actual value: text=&quot;Неверный формат&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869932113.5.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869932113.5.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkEmptyMonthInputErrorNotification(TourPageActions.java:134)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowEmptyMonthErrorForCreditPurchase(TourPageTest.java:358)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show error for invalid holder name containing numbers for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.445">
+    <failure message="Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869937555.6.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869937555.6.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Expected: visible
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869937555.6.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869937555.6.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldBe(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkInvalidHolderInputErrorNotification(TourPageActions.java:162)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowInvalidHolderNumbersErrorForCreditPurchase(TourPageTest.java:511)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=129.0.6668.71)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [249de975852afca62bad8f09e6076bc5, findChildElement {id=f.CE9B59C84F208465CC10446111DF69D9.d.E43FDF4270B210E90514B1B7D0744D22.e.721, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 129.0.6668.71, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\nshab\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57412}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57412/devtoo..., se:cdpVersion: 129.0.6668.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 249de975852afca62bad8f09e6076bc5
+	at java.base@11.0.22/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@11.0.22/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base@11.0.22/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.22/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 13 more
+</failure>
+  </testcase>
+  <testcase name="Should show error for invalid holder name containing cyrillic symbols for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.407">
+    <failure message="Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869942923.7.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869942923.7.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Expected: visible
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869942923.7.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869942923.7.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldBe(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkInvalidHolderInputErrorNotification(TourPageActions.java:162)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowInvalidHolderCyrillicErrorForDebitCardPurchase(TourPageTest.java:494)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=129.0.6668.71)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [249de975852afca62bad8f09e6076bc5, findChildElement {id=f.CE9B59C84F208465CC10446111DF69D9.d.C69FC5D3D9AA5E14AC281060F25BF634.e.766, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 129.0.6668.71, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\nshab\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57412}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57412/devtoo..., se:cdpVersion: 129.0.6668.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 249de975852afca62bad8f09e6076bc5
+	at jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+	at java.base@11.0.22/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.22/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 13 more
+</failure>
+  </testcase>
+  <testcase name="Should show empty holder name error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.219"/>
+  <testcase name="Should show invalid year error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.197"/>
+  <testcase name="Should show successful credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="21.175"/>
+  <testcase name="Should show unsuccessful debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="25.287">
+    <failure message="Element not found {.notification__title.findBy(text &quot;Ошибка&quot;)}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869991871.8.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869991871.8.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: Cannot locate an element .notification__title.findBy(text &quot;Ошибка&quot;)" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.notification__title.findBy(text &quot;Ошибка&quot;)}
+Expected: visible
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869991871.8.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869991871.8.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: Cannot locate an element .notification__title.findBy(text &quot;Ошибка&quot;)
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldBe(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkErrorNotification(TourPageActions.java:92)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowUnsuccessfulDebitCardPurchase(TourPageTest.java:150)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element .notification__title.findBy(text &quot;Ошибка&quot;)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: driver.version: unknown
+	at app//com.codeborne.selenide.impl.CollectionElementByCondition.getWebElement(CollectionElementByCondition.java:55)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 13 more
+</failure>
+  </testcase>
+  <testcase name="Should show error for invalid holder name containing cyrillic symbols for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.822">
+    <failure message="Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869997686.9.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869997686.9.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Expected: visible
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727869997686.9.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727869997686.9.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldBe(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkInvalidHolderInputErrorNotification(TourPageActions.java:162)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowInvalidHolderCyrillicErrorForCreditPurchase(TourPageTest.java:528)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=129.0.6668.71)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [249de975852afca62bad8f09e6076bc5, findChildElement {id=f.CE9B59C84F208465CC10446111DF69D9.d.1B6DFEEA96BF963F666B4FB4B2698AF1.e.991, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 129.0.6668.71, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\nshab\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57412}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57412/devtoo..., se:cdpVersion: 129.0.6668.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 249de975852afca62bad8f09e6076bc5
+	at jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+	at java.base@11.0.22/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.22/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 13 more
+</failure>
+  </testcase>
+  <testcase name="Should show expired month error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.493">
+    <failure message="Element should have text &quot;Истёк срок действия карты&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверно указан срок действия карты&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверно указан срок действия карты&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870003237.10.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870003237.10.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Истёк срок действия карты&quot; {.input__top.findBy(text &quot;Месяц&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверно указан срок действия карты&lt;/span&gt;'
+Actual value: text=&quot;Неверно указан срок действия карты&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870003237.10.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870003237.10.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkExpiredMonthInputErrorNotification(TourPageActions.java:127)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowExpiredMonthErrorForDebitCardPurchase(TourPageTest.java:307)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show invalid year error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.32"/>
+  <testcase name="Should show empty CVC/CVV error for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.135"/>
+  <testcase name="Should show error for invalid holder name containing numbers for debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.311">
+    <failure message="Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870010968.11.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870010968.11.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.input__top.findBy(text &quot;Владелец&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Expected: visible
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870010968.11.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870010968.11.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:91)
+	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:143)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldBe(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkInvalidHolderInputErrorNotification(TourPageActions.java:162)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowInvalidHolderNumbersErrorForDebitCardPurchase(TourPageTest.java:477)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.input__sub&quot;}
+  (Session info: chrome=129.0.6668.71)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [249de975852afca62bad8f09e6076bc5, findChildElement {id=f.CE9B59C84F208465CC10446111DF69D9.d.791802958782945F2BBF9BDAD292258B.e.1173, using=css selector, value=.input__sub}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 129.0.6668.71, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: C:\Users\nshab\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57412}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57412/devtoo..., se:cdpVersion: 129.0.6668.71, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 249de975852afca62bad8f09e6076bc5
+	at jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+	at java.base@11.0.22/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@11.0.22/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at app//org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at app//org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at app//org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at app//org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:212)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
+	at app//com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
+	at app//com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:116)
+	... 13 more
+</failure>
+  </testcase>
+  <testcase name="Should show empty year error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.782">
+    <failure message="Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Год&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверный формат&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870016823.12.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870016823.12.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Год&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'
+Actual value: text=&quot;Неверный формат&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870016823.12.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870016823.12.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkEmptyYearInputErrorNotification(TourPageActions.java:155)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowEmptyYearErrorForCreditPurchase(TourPageTest.java:460)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show expired year error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.296"/>
+  <testcase name="Should show empty number error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="5.279">
+    <failure message="Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Номер карты&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}&#13;&#10;Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'&#13;&#10;Actual value: text=&quot;Неверный формат&quot;&#13;&#10;Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870023433.13.png&#13;&#10;Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870023433.13.html&#13;&#10;Timeout: 4 s." type="com.codeborne.selenide.ex.ElementShould">Element should have text &quot;Поле обязательно для заполнения&quot; {.input__top.findBy(text &quot;Номер карты&quot;)/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' input__inner ')][1]/.input__control/By.xpath: ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' form-field ')][1]/.input__sub}
+Element: '&lt;span class=&quot;input__sub&quot;&gt;Неверный формат&lt;/span&gt;'
+Actual value: text=&quot;Неверный формат&quot;
+Screenshot: file:/D:/Netology/qa-diploma/build/reports/tests/1727870023433.13.png
+Page source: file:/D:/Netology/qa-diploma/build/reports/tests/1727870023433.13.html
+Timeout: 4 s.
+	at app//com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:149)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:127)
+	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:104)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:30)
+	at app//com.codeborne.selenide.commands.Should.execute(Should.java:14)
+	at app//com.codeborne.selenide.commands.Commands.execute(Commands.java:163)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
+	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
+	at app//com.sun.proxy.$Proxy36.shouldHave(Unknown Source)
+	at app//ru.netology.qa.qadiploma.utils.TourPageActions.checkEmptyNumberInputErrorNotification(TourPageActions.java:113)
+	at app//ru.netology.qa.qadiploma.tests.TourPageTest.shouldShowEmptyNumberErrorForCreditPurchase(TourPageTest.java:256)
+	at java.base@11.0.22/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//com.epam.reportportal.junit5.ReportPortalExtension.interceptTestMethod(ReportPortalExtension.java:276)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base@11.0.22/java.util.ArrayList.forEach(ArrayList.java:1541)
+</failure>
+  </testcase>
+  <testcase name="Should show successful debit card purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="21.156"/>
+  <testcase name="Should show empty holder name error for credit purchase" classname="ru.netology.qa.qadiploma.tests.TourPageTest" time="1.342"/>
+  <system-out><![CDATA[2024-10-02 14:51:08,192 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:09,662 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:15,335 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:20,891 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:22,343 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:47,950 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:53,353 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:54,649 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:55,868 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:57,155 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:58,397 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:58,459 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:51:59,663 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:05,000 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:06,944 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:12,344 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:17,800 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:23,213 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:24,435 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:25,635 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:52:46,814 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:12,126 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:17,958 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:23,454 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:24,778 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:25,916 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:31,243 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:37,032 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:38,334 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:53:43,618 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+2024-10-02 14:54:04,776 [Test worker] INFO  ru.netology.qa.qadiploma.tests.TourPageTest - Logged into ReportPortal
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
