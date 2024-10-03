@@ -27,10 +27,10 @@ jobs:
           docker-compose --version
 
       - name: Build and run Docker Compose
-        run: docker-compose up
+        run: docker-compose up &
 
-      - name: Waiting for container start
-        run: sleep 30
+      - name: Waiting for containers to start
+        run: sleep 10
 
       - name: Start SUT
         run: java -jar ./aqa-shop.jar &
