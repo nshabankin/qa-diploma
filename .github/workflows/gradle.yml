@@ -27,7 +27,7 @@ jobs:
           docker-compose --version
 
       - name: Build and run Docker Compose
-        run: docker-compose up --wait
+        run: docker-compose up --build -d
 
       - name: Waiting for containers to start
         run: sleep 20
