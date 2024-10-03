@@ -44,12 +44,6 @@ services:
       - mysql
       - postgres
 
-  app:
-    image: myapp
-    depends_on:
-      - reportportal_ui
-      - reportportal_api
-
 networks:
   app-network:
     driver: bridge
