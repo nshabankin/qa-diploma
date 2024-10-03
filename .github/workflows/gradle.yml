@@ -27,7 +27,7 @@ jobs:
           docker-compose --version
 
       - name: Start ReportPortal services
-        run: docker-compose -f ./reportportal-docker-compose.yml up -d
+        run: docker-compose -f ./reportportal-docker-compose.yml up --build -d
 
       - name: Wait for ReportPortal to be ready
         run: |
