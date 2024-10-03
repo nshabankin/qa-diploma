@@ -37,7 +37,7 @@ jobs:
           done
 
       - name: Start Project services
-        run: docker-compose -f ./docker-compose.yml up -d
+        run: docker-compose -f ./docker-compose.yml up --build -d
 
       - name: Wait for services (MySQL and PostgreSQL)
         run: |
