@@ -29,19 +29,8 @@ jobs:
       - name: Start Project services
         run: docker-compose up --build -d
 
-      - name: Wait for services (MySQL and PostgreSQL)
-        run: |
-          until nc -z localhost 3306 && nc -z localhost 5432; do
-            echo "Waiting for MySQL and PostgreSQL to be ready..."
-            sleep 20
-          done
-
-      - name: Wait for gate-simulator (Node.js) to be ready
-        run: |
-          until curl -s http://localhost:9999; do
-            echo "Waiting for gate-simulator to be ready..."
-            sleep 20
-          done
+      - name: Waiting for containers to start
+        run: sleep 60
 
       - name: Start SUT
         run: java -jar ./aqa-shop.jar &
