@@ -26,18 +26,8 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose --version
 
-      - name: Start ReportPortal services
-        run: docker-compose -f ./reportportal-docker-compose.yml up --build -d
-
-      - name: Wait for ReportPortal to be ready
-        run: |
-          until curl -s http://localhost:8080; do
-            echo "Waiting for ReportPortal..."
-            sleep 30
-          done
-
       - name: Start Project services
-        run: docker-compose -f ./docker-compose.yml up --build -d
+        run: docker-compose up --build -d
 
       - name: Wait for services (MySQL and PostgreSQL)
         run: |

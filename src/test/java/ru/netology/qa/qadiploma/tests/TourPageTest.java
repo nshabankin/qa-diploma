@@ -1,16 +1,9 @@
 package ru.netology.qa.qadiploma.tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import com.epam.reportportal.junit5.ReportPortalExtension;
-import com.epam.reportportal.selenide.ReportPortalSelenideEventListener;
 import lombok.SneakyThrows;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import ru.netology.qa.qadiploma.data.DataGenerator;
 import ru.netology.qa.qadiploma.data.TestData;
 import ru.netology.qa.qadiploma.pages.TourPageElements;
@@ -20,8 +13,6 @@ import ru.netology.qa.qadiploma.utils.TourPageActions;
  * Класс для тестов страницы покупки тура. Использует данные из класса TestData.
  */
 public class TourPageTest {
-
-    private static final Logger LOGGER = LogManager.getLogger(TourPageTest.class);
 
     private static TourPageActions actions;    // Класс для выполнения действий на странице
 
@@ -94,14 +85,6 @@ public class TourPageTest {
 
         // Создание объекта с тестовыми данными с пустым значением CVC/CVV
         emptyCvvUserData = DataGenerator.getEmptyCvcUserData();
-    }
-
-    @BeforeEach
-    @DisplayName("ReportPortal logging")
-    @ExtendWith(ReportPortalExtension.class)
-    void reportPortalLogging() {
-        SelenideLogger.addListener("Report Portal logger", new ReportPortalSelenideEventListener());
-        LOGGER.info("Logged into ReportPortal");
     }
 
     @Test
