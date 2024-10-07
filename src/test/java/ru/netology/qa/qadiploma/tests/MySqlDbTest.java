@@ -1,12 +1,20 @@
 package ru.netology.qa.qadiploma.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import com.epam.reportportal.junit5.ReportPortalExtension;
+import com.epam.reportportal.selenide.ReportPortalSelenideEventListener;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import ru.netology.qa.qadiploma.data.DataGenerator;
 import ru.netology.qa.qadiploma.pages.TourPageElements;
+import ru.netology.qa.qadiploma.utils.MySqlDbActions;
 import ru.netology.qa.qadiploma.utils.TourPageActions;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,16 +23,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MySqlDbTest {
 
+    private static final Logger LOGGER = LogManager.getLogger(TourPageTest.class);
+
+    // Тестовые данные из других классов
     TourPageElements elements = new TourPageElements();
     TourPageActions actions = new TourPageActions(elements);
     String card1Number = DataGenerator.getApprovedUserData().getCardNumber();
     String card2Number = DataGenerator.getDeclinedUserData().getCardNumber();
+    MySqlDbActions dbConfig = new MySqlDbActions();
 
-    private Connection getMySQLConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/app";
-        String username = "app";
-        String password = "pass";
-        return DriverManager.getConnection(url, username, password);
+    @BeforeEach
+    @DisplayName("ReportPortal logging")
+    @ExtendWith(ReportPortalExtension.class)
+    void reportPortalLogging() {
+        SelenideLogger.addListener("Report Portal logger", new ReportPortalSelenideEventListener());
+        LOGGER.info("Logged into ReportPortal");
     }
 
     /**
@@ -40,7 +53,7 @@ public class MySqlDbTest {
         actions.openPage();
         int tourPrice = actions.getTourPrice();
 
-        try (Connection connection = getMySQLConnection();
+        try (Connection connection = dbConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 
@@ -79,7 +92,7 @@ public class MySqlDbTest {
         // SQL запрос к таблице order_entity
         String query = "SELECT id, created, credit_id, payment_id FROM order_entity";
 
-        try (Connection connection = getMySQLConnection();
+        try (Connection connection = dbConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 
@@ -116,7 +129,7 @@ public class MySqlDbTest {
         // SQL запрос к таблице credit_request_entity
         String query = "SELECT id, bank_id, created, status FROM credit_request_entity";
 
-        try (Connection connection = getMySQLConnection();
+        try (Connection connection = dbConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 

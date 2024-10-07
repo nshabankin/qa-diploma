@@ -47,13 +47,12 @@ dependencies {
 
     // MySQL Connector for database testing
     testImplementation 'mysql:mysql-connector-java:8.0.33'
+}
 
-    // DbUtils for database utility
-    //testImplementation 'org.apache.commons:commons-dbutils:1.7'
-
-    // PostgreSQL JDBC Driver
-    testImplementation 'org.postgresql:postgresql:42.2.24'
-
+ext {
+    dbUrl = "jdbc:mysql://localhost:3306/app"
+    dbUsername = "app"
+    dbPassword = "pass"
 }
 
 test {
@@ -63,4 +62,7 @@ test {
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     systemProperty 'chromeoptions.prefs', System.getProperty('chromeoptions.prefs', "profile.password_manager_leak_detection=false")
     systemProperty "allure.results.directory", "build/allure-results"
+    systemProperty 'dbUrl', dbUrl
+    systemProperty 'dbUsername', dbUsername
+    systemProperty 'dbPassword', dbPassword
 }

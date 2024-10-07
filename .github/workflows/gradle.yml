@@ -33,7 +33,7 @@ jobs:
         run: |
           until curl -s http://localhost:8080; do
             echo "Waiting for ReportPortal..."
-            sleep 30
+            sleep 120
           done
 
       - name: Start Project services
@@ -43,7 +43,7 @@ jobs:
         run: |
           until nc -z localhost 3306 && nc -z localhost 5432; do
             echo "Waiting for MySQL and PostgreSQL to be ready..."
-            sleep 20
+            sleep 120
           done
 
       - name: Wait for gate-simulator (Node.js) to be ready
